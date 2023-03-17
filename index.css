@@ -1,0 +1,168 @@
+@font-face{
+    font-family: 'dos';
+    src: url('./dosgothic/DOSGothic.ttf') format('truetype');    
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'dos';
+}
+.all{
+    width: 80vw;
+    height: 100vh;
+    border: 1px solid black;
+    position: relative;
+    
+    
+    
+}
+.all::after{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    background-image: url(./배경.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+}
+.monster,
+.player{
+    display: flex;
+    /* border: 1px solid black; */
+}
+.monster-status{
+    margin-top: 15px;
+    margin-left: 30px;
+    width:500px;
+    height: 200px;
+    border: 1px solid black;
+    
+}
+.monster-img{
+    margin-top: 15px;
+    margin-left: 250px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+.player-status{
+    margin-top: 150px;
+    margin-left: 250px;
+    width:500px;
+    height: 200px;
+    border: 1px solid black;
+    
+}
+.player-img{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+.select{
+    /* border: 1px solid black; */
+    display: flex;
+    position: relative;
+}
+.select-window{
+    display: block;
+    width: 750px;
+    height: 240px;
+    margin-left: 200px;
+    margin-top: 30px;
+    border: 1px solid black;
+    position: absolute;
+}
+.inven{
+    display: none;
+    
+    width: 750px;
+    height: 240px;
+    margin-left: 200px;
+    margin-top: 30px;
+    border: 1px solid black;
+    position: absolute;
+}
+.select-window li{
+    /* border: 1px solid black; */
+    
+    width: 140px;
+    height: 45px;
+    margin-top: 25px;
+    padding-left: 50px;
+    list-style-type: none;
+
+    background-image: url(./화살표.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 35px;
+    cursor: pointer;
+
+    font-size: 35px;
+    
+    
+}
+.select-window li:hover{
+    background-size: 45px;
+    font-size: 40px;
+    transition: 0.1s;
+    
+    
+}
+.inven li{
+    
+    
+    width: 240px;
+    height: 30px;
+    margin-top: 15px;
+    padding-left: 30px;
+    list-style-type: none;
+
+    background-image: url(./화살표.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 20px;
+    cursor: pointer;
+
+    font-size: 20px;
+}
+.inven li:hover{
+    background-size: 25px;
+    font-size: 25px;
+    transition: 0.1s;
+}
+
+.window2{
+    display: flex;
+    margin-top: 5px;
+    width: 340px;
+    height: 100px;
+    
+}
+.player-img{
+    background-image: url(./마리오11.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.player-img.weapon{
+    background-image: url(./마리오\ 검.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+}
+
+.hp{
+
+    width: 400px;
+    height: 50px;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-left: 90px;
+}
