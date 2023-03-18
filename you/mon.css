@@ -1,0 +1,8 @@
+/* 폰트 */
+@font-face{
+  font-family: 'dos';
+  src: url('./DOSGothic.ttf') format('truetype');    
+}
+body {
+  font-family: 'dos';
+}
