@@ -59,6 +59,7 @@ monsterArr.push(new monster("보스몬", 150, 50, 10, 100, 1000))
 
 // 몬스터 랜덤으로 나오기
 function monsterChoice(){
+  
   let randomIndex = Math.floor(Math.random()* monsterArr.length);
   for (let i = 0; i < monsterArr.length; i++) {
     switch (randomIndex){
@@ -112,9 +113,9 @@ function expFun(exp,money){
   if(userman.level * 30 <= userman.exp){
     userman.exp -= userman.level * 30;
     userman.level += 1;
-    userman.atk += 10;
-    userman.def += 5;
-    userman.hp += 50;
+    // userman.atk += 10;
+    // userman.def += 5;
+    // userman.hp += 50;
   }
   userselect(userman);
 }
@@ -143,6 +144,5 @@ attack.onclick = function(){
 // 이미지 온클릭 -> 클릭하면 함수 발동
 
 
-// 오류 : 몬스터 처치하면 다시 hp 리셋
-// 때리고 도망가기
-// 플레이어 죽으면 어떻게 할건지~
+// 오류 : 몬스터 처치하면 다시 hp 리셋 / 때리고 도망가기
+// 플레이어 죽으면 어떻게 할건지 -> 게임 오버
