@@ -74,6 +74,17 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.monster-img.img3{
+    margin-top: 15px;
+    margin-left: 250px;
+    width: 300px;
+    height: 300px;
+    /* border: 1px solid black; */
+    background-image: url(./보상.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+}
 .player-status{
     margin-top: 150px;
     margin-left: 250px;
@@ -150,7 +161,7 @@ body {
     margin-top: 30px;
     /* border: 1px solid black; */
     position: absolute;
-    text-align: center;
+    /* text-align: center; */
     line-height: 240px;
     font-size: 30px;
 }
@@ -277,6 +288,7 @@ body {
     
     text-align: center;
     line-height: 30px;
+    
 }
 
 .hp,
