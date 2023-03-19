@@ -80,7 +80,7 @@ monsterArr.push(new monster("몬스터2", 40, 15, 15, 10, 1000));
 
 
 // 산책 버튼
-walk.addEventListener("click",monsterChoice);
+window.addEventListener("load",monsterChoice);
 
 // 몬스터 랜덤으로 나오기
 function monsterChoice(){  
