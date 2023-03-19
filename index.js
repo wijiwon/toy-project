@@ -439,6 +439,7 @@ function userturn(){  // 초기 선택창으로 가는거
 function expFun(exp,money){
   userman.exp += exp;
   userman.money += money;
+  
   dieMonster.push("몬스터 잔해물") // dieMonster 배열에 잔해물과  box 3개중 1개를 배열에 넣는다.
   dieMonster.push(mainmonster.box);
 
@@ -489,21 +490,25 @@ function reward() {
   {
     mreward +=1;
     hppotion +=1;
+    
 
   }
   else if(dieMonster[1]=='공격력증가물약'){
 
     mreward +=1;
     atkpotion +=1;
+    
   }
   else if(dieMonster[1]=='방어력증가물약'){
 
     mreward +=1;
     defpotion +=1;
+    
   }
 
   monsterArr[0]=new monster("몬스터1", 100, 30, 10, 5, 1000);
   monsterArr[1]=new monster("몬스터2", 100, 20, 20, 10, 1000);
+  dieMonster=[];
   
 }
 
