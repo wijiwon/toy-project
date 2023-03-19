@@ -19,6 +19,10 @@
                 <div class="atk">공격력</div>
                 <div class="def">방어력</div>
             </div>
+            <div style="display: flex;">
+                <div class="money">소지금</div>
+                <div class="monexp">exp</div>
+            </div>
         </div>
         <div class="am">
             <div class="atkmotion"></div>
@@ -30,15 +34,15 @@
     <div class="player">
         <div class="player-img"></div>
         <div class="player-status">
-            <div class="hhp">
-                <div class="hp-id">체력</div>
-                <div class="hp"></div> 
+            <div class="phhp">
+                <div class="php-id">체력</div>
+                <div class="php"></div> 
             </div>
-            <div class="ad">
-                <div class="atk">공격력</div>
-                <div class="def">방어력</div>
+            <div class="pad">
+                <div class="patk">공격력</div>
+                <div class="pdef">방어력</div>
             </div>
-            <div class="money">소지금</div>
+            <div class="pmoney">소지금</div>
             <div class="exp">exp</div>
         </div>
     </div>
@@ -48,7 +52,10 @@
             <ul>
                 <li onclick="atk()">1. 공격</li>
                 <li class="bag" onclick="bagOpen()">2. 가방</li>
-                <li>3. 도망</li>
+                <li id="run">3. 도망</li>
+                <button id="walk">산책하면 몬스터나옴</button>
+                <button id="user1">캐릭터1</button>
+                <button id="user2">캐릭터2</button>
             </ul>
         </div>
         <div class="inven">
