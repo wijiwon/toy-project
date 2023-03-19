@@ -5,6 +5,8 @@ let dieMonster=[];
 let mainmonster;
 let outputdiv = document.querySelector(".monster-output");
 
+// let playerAttack = document.querySelector(".status-window");
+
 // 캐릭터 생성자함수
 function user(number){
   if(number == 1){
@@ -23,6 +25,7 @@ function user(number){
   this.money = 0; //돈 0
   this.item = null; //무기
   this.level = 1; //레벨
+  this.monitem = 0;
 }
 
 user1.onclick = function(){
@@ -59,6 +62,8 @@ function userselect(userman){
   let exp = document.querySelector(".exp");
   exp.innerHTML=`EXP: ${userman.exp}/${userman.level * 30}`;
 
+  let monitem = document.querySelector(".monitem")
+  monitem.innerHTML= alert`몬스터 잔해물${userman.monitem}개`
 
 //   outputUserData.innerHTML = `캐릭터레벨${userman.level} 캐릭터이름: ${userman.name} 캐릭터HP: ${userman.hp}
 //    캐릭터 공격력: ${userman.atk} 캐릭터 방어력: ${userman.def} 경험치: ${userman.exp}/${userman.level * 30}
@@ -66,14 +71,14 @@ function userselect(userman){
 }
 
 // 몬스터 생성자함수
-function monster(name, hp, atk, def, exp, money){
+function monster(name, hp, atk, def, exp, money, box){
   this.name = name;
   this.hp = hp;
   this.atk = atk;
   this.def = def;
   this.exp = exp;
   this.money = money
-  this.box = null;
+  this.box = box;
 };
 
 let monsterArr=[];
@@ -217,6 +222,7 @@ function bagOpen(){ //
       
 }
 
+
 function back(){
     let back = document.querySelector(".back");
     let bag = document.querySelector(".select-window");
@@ -306,7 +312,9 @@ function playerAttack(ph) {
             sw.style.display='none';
             sw2.style.display='block';
 
-            expFun(mainmonster.exp, mainmonster.money);
+            expFun(mainmonster.exp, mainmonster.money, mainmonster.box);
+            userman.monitem += 1;
+            console.log(userman.monitem);
           }
           
           break;
@@ -342,6 +350,7 @@ function playerAttack(ph) {
 
 
             expFun(mainmonster.exp, mainmonster.money);
+            // console.log(dieMonster)
           }
 
           break;
@@ -407,12 +416,11 @@ function userturn(){  // 초기 선택창으로 가는거
       bag.style.display ='block'; // 목록 다시 띄우고
 }
 
-function expFun(exp,money){
+function expFun(exp,money,box){
   userman.exp += exp;
   userman.money += money;
   dieMonster.push("몬스터 잔해물") // dieMonster 배열에 잔해물과  box 3개중 1개를 배열에 넣는다.
-  dieMonster.push(mainmonster.box);
-
+  mainmonster.box += box;
   let immg = document.querySelector(".monster-img");
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="./test3.html">이동</a>
+  <button id="testbtn">호출하기</button>
+  <button id="btn">삭제하기</button>
+</body>
+<script>
+  testbtn.onclick = function(){
+    let test = JSON.parse(localStorage.getItem("test1"))
+    console.log(test)
+  }
+  btn.onclick = function(){
+    localStorage.clear("test1")
+  }
+  
+</script>
+</html>
