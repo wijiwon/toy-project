@@ -5,6 +5,12 @@ let dieMonster=[];
 let mainmonster;
 let outputdiv = document.querySelector(".monster-output");
 
+let hppotion =0;
+let atkpotion = 0;
+let defpotion = 0;
+let mreward =0;
+
+
 // 캐릭터 생성자함수
 function user(number){
   if(number == 1){
@@ -78,7 +84,7 @@ function monster(name, hp, atk, def, exp, money){
 
 let monsterArr=[];
 
-monsterArr.push(new monster("몬스터1", 100, 10, 10, 5, 1000));
+monsterArr.push(new monster("몬스터1", 100, 30, 10, 5, 1000));
 monsterArr.push(new monster("몬스터2", 100, 20, 20, 10, 1000));
 
 
@@ -211,6 +217,19 @@ function bagOpen(){ //
 
     let bag = document.querySelector(".select-window");
     let inven = document.querySelector(".inven");
+
+    let hpp = document.querySelector(".hppotion");
+    let atkp = document.querySelector(".atkpotion");
+    let defp = document.querySelector(".defpotion");
+    let mre = document.querySelector(".mreward");
+
+    hpp.innerHTML= `2.HP회복 물약 (${hppotion})`;
+    atkp.innerHTML=`3.공격력증가 물약 (${atkpotion})`;
+    defp.innerHTML=`4.방어력증가 물약 (${defpotion})`;
+    mre.innerHTML=`5.몬스터 잔해 (${mreward})`;
+
+
+
     // console.log(bag);
         bag.style.display ='none';
         inven.style.display='block';
@@ -230,19 +249,28 @@ function back(){
 function weapon(){
 
     let playImgChange = document.querySelector(".player-img");
+    let inven = document.querySelector(".inven");
+    let playerAttack = document.querySelector(".status-window");
+    let sw3 = document.querySelector(".sw3");
 
-    if(playImgChange.classList.contains("is-active")){ // class 있으면
-         
-        
+    if(playImgChange.classList.contains("weapon")){ // class 있으면
+        inven.style.display='none' //가방 끄고
+        playerAttack.style.display= 'block'//상태창에 "이미 무기를 착용한상태입니다."
+        sw3.style.display='block';
+        playerAttack.innerHTML = `이미 무기를 착용한 상태입니다.`;
       }
       else{ // class 없으면
         playImgChange.className = playImgChange.className + " weapon";
-        // playImgChange.classList.remove("weapon");
 
-        // setTimeout(function() {
-        //   playImgChange.classList.remove("weapon");
-        // }, 1000);
+        userman.atk = userman.atk + 10 ;
+        
+        let atk = document.querySelector(".patk");
+        atk.innerHTML=`공격력: ${userman.atk}`;
+
+
       }
+
+    
 }
 
 // 공격 버튼을 눌렀을 때 할퀴기모션이 나오고 1초뒤에 사라지고 몬스터한테 공격권 주고(1)
@@ -375,13 +403,11 @@ function monsterAttack() {
 
             monsterAttack.innerHTML += `몬스터가 공격했다.${mainmonster.name}한테 ${(mainmonster.atk - userman.def)}피해를 입었다`;
             
-            
             ph = ph -(mainmonster.atk - userman.def);
             
-            
             ph4 = ph*4;
-            alert("남은유저피" +ph)
              
+            
             phpbar.style.width = `${ph4}px`;
             phpid.innerHTML=`체력: ${ph}`;
 
@@ -399,9 +425,12 @@ function userturn(){  // 초기 선택창으로 가는거
   let reward = document.querySelector(".status-window2");
   let monsterAttack = document.querySelector(".status-window3");
   let sw = document.querySelector(".sw3");
+  let playerAttack = document.querySelector(".status-window");
 
       reward.style.display='none';
       monsterAttack.style.display='none'
+      playerAttack.style.display='none';
+      playerAttack.innerHTML=null;
       monsterAttack.innerHTML= null;  // 몬스터 공격창 지우고
       sw.style.display="none"; // 옆에 userturn 지우고
       bag.style.display ='block'; // 목록 다시 띄우고
@@ -428,10 +457,7 @@ function expFun(exp,money){
     immg.classList.add("img3");
   
   }
-
-  alert(dieMonster[0]);
-  alert(dieMonster[1]);
-
+  
   if(userman.level * 30 <= userman.exp){
     userman.exp -= userman.level * 30;
     userman.level += 1;
@@ -458,7 +484,111 @@ function reward() {
 
   reward.innerHTML =`${dieMonster[0]}과 ${dieMonster[1]}을 획득했다.`;
 
-  monsterArr[0]=new monster("몬스터1", 100, 10, 10, 5, 1000);
+
+  if(dieMonster[1]=='체력증가물약')
+  {
+    mreward +=1;
+    hppotion +=1;
+
+  }
+  else if(dieMonster[1]=='공격력증가물약'){
+
+    mreward +=1;
+    atkpotion +=1;
+  }
+  else if(dieMonster[1]=='방어력증가물약'){
+
+    mreward +=1;
+    defpotion +=1;
+  }
+
+  monsterArr[0]=new monster("몬스터1", 100, 30, 10, 5, 1000);
   monsterArr[1]=new monster("몬스터2", 100, 20, 20, 10, 1000);
   
 }
+
+function hpplus() {
+  let playerAttack = document.querySelector(".status-window");
+  let inven = document.querySelector(".inven");
+  let sw3 = document.querySelector(".sw3");
+  let hpp = document.querySelector(".hppotion");
+  let phpid = document.querySelector(".php-id");
+  let phpbar = document.querySelector(".php");
+
+  if(hppotion<=0){
+
+    inven.style.display='none' //인벤 끄고
+    playerAttack.style.display= 'block'
+    sw3.style.display='block';
+    playerAttack.innerHTML = `사용가능한 HP회복 물약이 없습니다.`;
+    hppotion =0;
+    hpp.innerHTML=`2.HP회복 물약 (${hppotion})`;
+}
+else{
+
+    userman.hp = userman.hp +20;
+    ph4 = userman.hp*4;
+    // ph20 = ph4+20;
+    phpbar.style.width = `${ph4}px`;
+
+    phpid.innerHTML=`체력: ${userman.hp}`;
+    hppotion -=1;
+
+    hpp.innerHTML=`2.HP회복 물약 (${hppotion})`;
+  }
+}
+
+function atkplus() {
+  let playerAttack = document.querySelector(".status-window");
+  let inven = document.querySelector(".inven");
+  let sw3 = document.querySelector(".sw3");
+  let patk = document.querySelector(".patk");
+  let atkp = document.querySelector(".atkpotion");
+
+  if(atkpotion<=0){
+
+    inven.style.display='none' //인벤 끄고
+    playerAttack.style.display= 'block'
+    sw3.style.display='block';
+    playerAttack.innerHTML = `사용가능한 공격력증가 물약이 없습니다.`;
+
+    atkpotion =0;
+    atkp.innerHTML=`3.공격력증가 물약 (${atkpotion})`;
+
+}else{
+
+    userman.atk += 20;
+    patk.innerHTML=`공격력: ${userman.atk}`;
+    atkpotion -=1;
+    atkp.innerHTML=`3.공격력증가 물약 (${atkpotion})`;
+  }
+}
+
+function defplus() {
+  let playerAttack = document.querySelector(".status-window");
+  let inven = document.querySelector(".inven");
+  let sw3 = document.querySelector(".sw3");
+  let defp = document.querySelector(".defpotion");
+  let pdef = document.querySelector(".pdef");
+
+  if(defpotion<=0){ // 방어력포션이 0개 이하 일때
+
+        inven.style.display='none' //인벤 끄고
+        playerAttack.style.display= 'block'; 
+        sw3.style.display='block';
+        playerAttack.innerHTML = `사용가능한 방어력증가 물약이 없습니다.`;
+        defpotion =0;
+        defp.innerHTML=`4.방어력증가 물약 (${defpotion})`;
+  }else{
+    userman.def +=20;
+    pdef.innerHTML=`방어력: ${userman.def}`;
+    defpotion -=1;
+    defp.innerHTML=`4.방어력증가 물약 (${defpotion})`;
+
+  }
+}
+
+
+
+
+
