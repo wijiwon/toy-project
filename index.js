@@ -147,6 +147,7 @@ function box(){
     };
   }
 }
+
 // 도망가기
 run.onclick = function(){
   let immg = document.querySelector(".monster-img");

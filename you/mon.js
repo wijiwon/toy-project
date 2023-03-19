@@ -72,6 +72,7 @@ function monsterSetup(){
 
 // 몬스터 랜덤으로 나오기
 function monsterChoice(){
+  
   let randomIndex = Math.floor(Math.random()* monsterArr.length);
   if(mainmonster == null){
     for (let i = 0; i < monsterArr.length; i++) {
@@ -128,9 +129,9 @@ function expFun(exp,money){
   if(userman.level * 30 <= userman.exp){
     userman.exp -= userman.level * 30;
     userman.level += 1;
-    userman.atk += 10;
-    userman.def += 5;
-    userman.hp += 50;
+    // userman.atk += 10;
+    // userman.def += 5;
+    // userman.hp += 50;
   }
   userselect(userman);
   console.log(dieMonster);
