@@ -31,21 +31,28 @@ function user(number){
   this.level = 1; //레벨
 }
 
-user1.onclick = function(){
+
+if(window.localStorage.getItem("케릭터") == "마리오")
+{
   let mimg = document.querySelector(".player-img");
   mimg.classList.remove('img2');  
   mimg.classList.add('img1');  
   userman = new user(1);
   userselect(userman);
-
-}
-user2.onclick = function(){
+}else{
   let mimg = document.querySelector(".player-img");
   mimg.classList.remove('img1');  
   mimg.classList.add('img2'); 
   userman = new user(0);
   userselect(userman);
 }
+// user1.onclick = function(){
+
+
+// }
+// user2.onclick = function(){
+
+// }
 
 function userselect(userman){
   // let outputUserData  = document.querySelector(".userData");
