@@ -10,19 +10,15 @@ let atkpotion = window.localStorage.getItem("Atk") || 0;
 let defpotion = window.localStorage.getItem("def") || 0;
 let mreward =0;
 
+
 // 수정해야됨 : 체력바 기본값 줘야됨
 // let phpbar=document.querySelector(".php");
 //     let phpid = document.querySelector(".php-id");
 //     phpbar.style.width = `${ph4}px`;
 //             phpid.innerHTML=`체력: ${ph}`;
 
-
-
 function setting() {
-  
-  
 }
-
 
 // 캐릭터 생성자함수
 function user(number){
@@ -55,12 +51,23 @@ if(window.localStorage.getItem("케릭터") == "마리오")
   mimg.classList.add('img1');  
   userman = new user(1);
   userselect(userman);
+  
 }else{
   let mimg = document.querySelector(".player-img");
   mimg.classList.remove('img1');  
   mimg.classList.add('img2'); 
   userman = new user(0);
   userselect(userman);
+  
+}
+
+hprender();
+function hprender(){
+  // 백분율=비율×100
+  let num = parseInt(window.localStorage.getItem("hpp")) || 100;
+  let num2 = (num * 4);
+  let phpbar=document.querySelector(".php");
+  phpbar.style.width = `${num2}px`;
 }
 // user1.onclick = function(){
 
