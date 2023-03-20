@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="background">
-        <div class="back" onclick="location.href='./상점,산책 선택.html'">돌아가기</div>
+        <div class="back">돌아가기</div>
         <div class="my">                                        <!--내 정보 영역-->
             <div class="monster">
                 <img src="./몬스터의 잔해.png" alt="몬스터의 잔해">
@@ -149,6 +149,12 @@
 </body>
 <script>
     console.log(window.localStorage.getItem('상점'));
+
+    document.querySelector('.back').onclick = function () {
+        window.localStorage.setItem("메인","1");
+        window.location.href = './index.html'
+    }
+
 </script>
 <script src="./상점.js"></script>
 <script src="./index.js"></script>

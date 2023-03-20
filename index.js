@@ -10,6 +10,14 @@ let atkpotion = window.localStorage.getItem("Atk") || 0;
 let defpotion = window.localStorage.getItem("def") || 0;
 let mreward =0;
 
+// 수정해야됨 : 체력바 기본값 줘야됨
+// let phpbar=document.querySelector(".php");
+//     let phpid = document.querySelector(".php-id");
+//     phpbar.style.width = `${ph4}px`;
+//             phpid.innerHTML=`체력: ${ph}`;
+
+
+
 function setting() {
   
   
@@ -23,15 +31,18 @@ function user(number){
     this.atk = 40; //공격력 
     this.def = 10; //방격력 
   }
+  
   else{
     this.name = "player2"; //방어력 쎈 애
     this.atk = 30; //공격력
     this.def = 20; //방격력 
   }
+ 
+  
   // 고정값
-  this.hp = 100; //체력 100
-  this.exp = 0; //경험치 0
-  this.money = 0; //돈 0
+  this.hp = parseInt(window.localStorage.getItem("hpp") || 100); //체력 100
+  this.exp = parseInt(window.localStorage.getItem("exp") || 0); //경험치 0
+  this.money = parseInt(window.localStorage.getItem("my") || 0); //돈 0
   this.item = null; //무기
   this.level = 1; //레벨
 }
@@ -61,6 +72,9 @@ if(window.localStorage.getItem("케릭터") == "마리오")
 
 function userselect(userman){
   // let outputUserData  = document.querySelector(".userData");
+  let saveNumber3 = userman.hp;
+  window.localStorage.setItem("hpp",saveNumber3);
+
 
   let phpid = document.querySelector(".php-id");
   phpid.innerHTML=`체력: ${userman.hp}`;
@@ -71,8 +85,14 @@ function userselect(userman){
   let pdef = document.querySelector(".pdef");
   pdef.innerHTML=`방어력: ${userman.def}`;
 
-  let pmoney = document.querySelector(".pmoney");
-  pmoney.innerHTML=`소지금: ${userman.money}`;
+  let saveNumber1 = userman.money;
+  window.localStorage.setItem("my",saveNumber1);
+
+  let pmoney1 = document.querySelector(".pmoney");
+  pmoney1.innerHTML=`소지금: ${userman.money}`;
+
+  let saveNumber2 = userman.exp;
+  window.localStorage.setItem("exp",saveNumber2);
 
   let exp = document.querySelector(".exp");
   exp.innerHTML=`EXP: ${userman.exp}/${userman.level * 30}`;
@@ -101,7 +121,6 @@ monsterArr.push(new monster("몬스터2", 100, 20, 20, 10, 1000));
 
 
 
-
 // 산책 버튼
 window.addEventListener("load",monsterChoice);
 walk.addEventListener("click",monsterChoice);
@@ -121,6 +140,7 @@ function monsterChoice(){
         break;
     }
   }
+
 
   // outputdiv.innerHTML = `몬스터이름: ${mainmonster.name} 몬스터HP: ${mainmonster.hp} 
   // 몬스터 공격력: ${mainmonster.atk}  몬스터 방격력: ${mainmonster.def} 몬스터랜덤박스: ${mainmonster.box}`
@@ -309,12 +329,14 @@ function playerAttack(ph) {
       
       let playerAttack = document.querySelector(".status-window");
       let bag = document.querySelector(".select-window");
-      let sw = document.querySelector(".sw");
       let sw2 = document.querySelector(".sw2");
       let critical = parseInt(Math.random()*2);
       let mh =mainmonster.hp ;
+
+      let sw = document.querySelector(".sw");
       let hpbar = document.querySelector(".hp");
       let hpid = document.querySelector(".hp-id");
+    
      
       hpbar.style.width = `${mh}px`;
 
@@ -378,6 +400,9 @@ function playerAttack(ph) {
             
             playerAttack.innerHTML =`${mainmonster.name}에게 ${((userman.atk)*2 - mainmonster.def)}피해를 입혔다.</br>
             ${mainmonster.name}를 처치했다`;
+            
+            
+          
 
             sw.style.display='none';
             
@@ -404,10 +429,14 @@ function monsterAttack() {
     let sw = document.querySelector(".sw");
     let playerAttack = document.querySelector(".status-window");
 
+    // let ph = window.localStorage.getItem("hpp");
+
     let ph = userman.hp
     let phpbar=document.querySelector(".php");
     let phpid = document.querySelector(".php-id");
    
+
+  
 
     if(monsterAtk==1 && playerAtk==0){ // 몬스터가 공격권일 떄
 
@@ -420,8 +449,8 @@ function monsterAttack() {
             
             ph = ph -(mainmonster.atk - userman.def);
             
-            ph4 = ph*4;
-             
+            let ph4 = ph*4;
+            alert(ph4);
             
             phpbar.style.width = `${ph4}px`;
             phpid.innerHTML=`체력: ${ph}`;
@@ -454,10 +483,11 @@ function userturn(){  // 초기 선택창으로 가는거
 function expFun(exp,money){
   userman.exp += exp;
   userman.money += money;
+  //  let pmoney = window.localStorage.getItem("my");
 
 
-  let saveNumber1 = userman.money;
-  window.localStorage.setItem("my",saveNumber1);
+  // let saveNumber1 = userman.money;
+  // window.localStorage.setItem("my",saveNumber1);
 
   
   dieMonster.push("몬스터 잔해물") // dieMonster 배열에 잔해물과  box 3개중 1개를 배열에 넣는다.
@@ -481,10 +511,10 @@ function expFun(exp,money){
   
   if(userman.level * 30 <= userman.exp){
     userman.exp -= userman.level * 30;
-    userman.level += 1;
-    userman.atk += 10;
-    userman.def += 5;
-    userman.hp += 50;
+    // userman.level += 1;
+    // userman.atk += 10;
+    // userman.def += 5;
+    // userman.hp += 50;
   }
 
   userselect(userman);
@@ -559,7 +589,7 @@ function hpplus() {
 else{
 
     userman.hp = userman.hp +20;
-    ph4 = userman.hp*4;
+    let ph4 = userman.hp*4;
     // ph20 = ph4+20;
     phpbar.style.width = `${ph4}px`;
 

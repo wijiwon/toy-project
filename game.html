@@ -12,30 +12,34 @@
     <h1>로그인 페이지</h1>
     <form action="">
 <div class="page-text">
-    <input type="text" name="ID" id="ID"
+    <input type="text"  id="ID"
     autocomplete="off" requierd>
-    <label for="ID"> 아이디 </label>
+    <label for=""> 아이디 </label>
 </div>
 <div class="page-text">
-    <input type="text" name="ID" id="ID"
+    <input type="password" id="PWD"
     utocomplete="off" requierd>
-    <label for="ID"> 비밀번호 </label>
+    <label for=""> 비밀번호 </label>
 </div>
 <div class="button">
-    <button type="submit" class="reset">로그인</button>
+    <button type="submit" onclick="check()">로그인</button>
 </div>
 </form>
-<div class="caption"> <a href="">계정 찾기</a> </div>
+
+
 </section>
 <script>
-    document.querySelector(".reset").onclick = function(){
+    document.querySelector(".button").onclick = function(){
 
         window.localStorage.removeItem("Atk");
         window.localStorage.removeItem("hp");
         window.localStorage.removeItem("def");
         window.localStorage.removeItem("my");
+        window.localStorage.removeItem("exp");
+        window.localStorage.removeItem("hpp");
         
     }
 </script>
 </body>
+<script src="./game.js"></script>
 </html>

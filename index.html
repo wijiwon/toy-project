@@ -40,7 +40,7 @@
                 <div class="patk">공격력</div>
                 <div class="pdef">방어력</div>
             </div>
-            <div class="pmoney">소지금</div>
+            <div class="pmoney">소지금 : 0</div>
             <div class="exp">exp</div>
         </div>
     </div>
@@ -67,6 +67,7 @@
                 </div>
                 <div>
                     <li class="back" onclick="back()">6. 뒤로</li>
+                    <li class="store" onclick="store()">7. 상점</li>
                 </div>
             </ul>
         </div>
@@ -88,7 +89,16 @@
 </body>
 <script>
     console.log(window.localStorage.getItem('케릭터'))
+
+    document.querySelector(".store").onclick = function(){
+        window.localStorage.setItem("상점","1");
+          window.location.href = './상점.html'
+    }
+    
+
     
 </script>
 <script src="./index.js"></script>
+
+
 </html>

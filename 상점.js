@@ -4,8 +4,8 @@ function settingsValue(){
   document.querySelector('.infoValue').innerHTML = window.localStorage.getItem("Atk") || 0;
   document.querySelector('.infoValue1').innerHTML = window.localStorage.getItem("hp") || 0;
   document.querySelector('.infoValue2').innerHTML = window.localStorage.getItem("def") || 0;
-  
   document.querySelector('.infovalue5').innerHTML = window.localStorage.getItem("my");
+  
   
 }
 
