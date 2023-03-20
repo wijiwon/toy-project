@@ -211,9 +211,10 @@ run.onclick = function(){
     let monexp = document.querySelector(".monexp");
     monexp.innerHTML=`EXP:`;
   }
+  monsterArr[0]=new monster("몬스터1", 100, 30, 10, 5, 1000);
+  monsterArr[1]=new monster("몬스터2", 100, 20, 20, 10, 1000);
   // mainmonster = null;
   // document.querySelector(".monster-status").innerHTML = mainmonster;
-  
 }
 
 function bagOpen(){ //
