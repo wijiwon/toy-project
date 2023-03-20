@@ -28,8 +28,6 @@
             <div class="atkmotion"></div>
             <div class="monster-img"></div>
         </div>
-
-
     </div>
     <div class="player">
         <div class="player-img"></div>
@@ -62,10 +60,10 @@
             <ul class="window2">
                 <div>
                     <li class="weapon" onclick="weapon()">1. 무기</li>
-                    <li>2. HP물약</li>
-                    <li>3. 공격력증가 물약</li>
-                    <li>4. 턴 한번더</li>
-                    <li id="monitem" >5. 몬스터 잔해 </li>
+                    <li class="hppotion" onclick="hpplus()">2. HP회복 물약</li>
+                    <li class="atkpotion" onclick="atkplus()">3. 공격력증가 물약</li>
+                    <li class="defpotion" onclick="defplus()">4. 방어력증가 물약</li>
+                    <li class="mreward">5. 몬스터 잔해</li>
                 </div>
                 <div>
                     <li class="back" onclick="back()">6. 뒤로</li>
@@ -84,9 +82,6 @@
         <div style="display: flex;">
             <div class="status-window3"></div><div class="sw3" onclick="userturn()"></div>
         </div>
-
-    
-        
     </div>
 
 </div>
