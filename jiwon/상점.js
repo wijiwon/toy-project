@@ -241,9 +241,10 @@ SHX.onclick =  function popup(){                       //x 시 나타날 팝업
 
 function change(){
   
-  let cun = 1000;
+  let cun = document.querySelector(".monsterText");
   let money = document.querySelector(".moneyText");       //예시. 기존 소지하고 있는것과 연결되어야 함
   const getmre = document.querySelector(".cntRemains");
+  
 
   let mre = getmre.innerText;
   // for (let cun = 0; index < array.length; index++) {
@@ -254,6 +255,7 @@ function change(){
   if(mre >= 5){
     mre = mre - 5;
     mon +=1000;
+    cun.innerHTML =`${mre}`;
     money.innerHTML =`${mon}`;
     // console.log(`교환완료`);
     // console.log(typeof mon);
@@ -266,7 +268,7 @@ function change(){
     console.log(`교환안됨`);
     console.log(mon);
   }
-  
+  cun.innerText = `${mre}`;
   getmre.innerText = `${mre}`;
   money.innerText = `${mon}`;
 
