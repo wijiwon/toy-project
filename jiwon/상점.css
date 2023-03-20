@@ -18,6 +18,7 @@ body{
     height: 100vh;
     background-size: cover;
     border: 1px solid black;
+    z-index: 1;
 }
 
 .back {                                     /* 돌아가기 버튼 > 상점, 산책 페이지로 이동 */
@@ -86,6 +87,7 @@ body{
     height: 70%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 100px;
+    z-index: 2;
 
 }
 
@@ -171,7 +173,6 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     display: none;
-    z-index: 1;
 }
 
 .posionHPSub {                              /* hp증가포션 마우스오버 시 나오는 설명영역*/
@@ -363,22 +364,22 @@ body{
     transform: translate(-50%,-50%);
     width: 400px;
     height: 600px;
+    z-index: 3;
+}
+
+
+.open1,
+.open2,
+.open3,
+.open4,
+.open5{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
 }
 
 /*-------------------------- HP 물약 선택시 나오는 팝업창 ---------------------------------*/
-.infoHP{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 600px;
-    position: relative;
-    display: none;
-    
-}
-
-.infoHP.open{
-    display: block;
-    
-}
 
 #HPresult {
     position: absolute;
@@ -389,20 +390,6 @@ body{
 
 /*-----------------------------------------------------------------------------------------*/
 
-/*-------------------------- ATK 물약 선택시 나오는 팝업창 ---------------------------------*/
-.infoAtk{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 600px;
-    position: relative;
-    display: none;
-    
-}
-
-.infoAtk.open{
-    display: block;
-    
-}
 
 
 #ATKresult {
@@ -413,22 +400,6 @@ body{
 }
 /*-----------------------------------------------------------------------------------------*/
 
-/*--------------------------  sword 선택시 나오는 팝업창 ---------------------------------*/
-.infoSd{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 600px;
-    position: relative;
-    display: none;
-    
-}
-
-.infoSd.open{
-    display: block;
-    
-}
-
-
 #SDresult {
     position: absolute;
     left: 180px;
@@ -437,20 +408,6 @@ body{
 }
 /*-----------------------------------------------------------------------------------------*/
 /*--------------------------  armour 선택시 나오는 팝업창 ---------------------------------*/
-.infoAm{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 600px;
-    position: relative;
-    display: none;
-    
-}
-
-.infoAm.open{
-    display: block;
-    
-}
-
 
 #AMresult {
     position: absolute;
@@ -461,20 +418,6 @@ body{
 /*-----------------------------------------------------------------------------------------*/
 
 /*--------------------------  shield 선택시 나오는 팝업창 ---------------------------------*/
-.infoSh{
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 400px;
-    height: 600px;
-    position: relative;
-    display: none;
-    
-}
-
-.infoSh.open{
-    display: block;
-    
-}
-
 
 #SHresult {
     position: absolute;
