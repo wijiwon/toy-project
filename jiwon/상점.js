@@ -1,5 +1,25 @@
 let mon=0;
 
+function settingsValue(){
+  document.querySelector('.infoValue').innerHTML = window.localStorage.getItem("Atk") || 0;
+  document.querySelector('.infoValue1').innerHTML = window.localStorage.getItem("hp") || 0;
+  document.querySelector('.infoValue2').innerHTML = window.localStorage.getItem("def") || 0;
+  
+  document.querySelector('.infovalue5').innerHTML = window.localStorage.getItem("my");
+  
+}
+
+settingsValue();
+
+let _money = window.localStorage.getItem("my");
+
+function money() {
+  
+  let money2 = document.querySelector("infovalue5");
+
+  
+  money2.innerHTML = `${_money}`;
+}
 
 // HP 물약 선택시 수량 카운트 -----------------------------------------------------------------------------------------
 function countHp(type)  {                                         // 물품 선택 시 카운트할 함수
@@ -18,7 +38,10 @@ function countHp(type)  {                                         // 물품 선�
     }
     
     // 결과 출력
-    resultElement.innerText = number;
+    resultElement.innerText = number; // 몇개살지
+    let saveNumber = parseInt(document.querySelector('.infoValue1').innerHTML) + number;
+    window.localStorage.setItem("hp",saveNumber);
+    settingsValue();
   }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -41,6 +64,9 @@ function countAtk(type)  {                                         // 물품 선
     
     // 결과 출력
     resultElement.innerText = number;
+    let saveNumber = parseInt(document.querySelector('.infoValue').innerHTML) + number;
+    window.localStorage.setItem("Atk",saveNumber);
+    settingsValue();
   }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -62,6 +88,7 @@ function countSD(type)  {                                         // 물품 선�
     
     // 결과 출력
     resultElement.innerText = number;
+    
   }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -83,6 +110,7 @@ function countAM(type)  {                                         // 물품 선�
     
     // 결과 출력
     resultElement.innerText = number;
+    
   }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -104,6 +132,9 @@ function countSH(type)  {                                         // 물품 선�
     
     // 결과 출력
     resultElement.innerText = number;
+    let saveNumber = parseInt(document.querySelector('.infoValue2').innerHTML) + number;
+    window.localStorage.setItem("def",saveNumber);
+    settingsValue();
   }
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -254,7 +285,8 @@ function change(){
   
   if(mre >= 5){
     mre = mre - 5;
-    mon +=1000;
+    _money = parseInt(_money) +1000;
+    mon = parseInt(_money);
     cun.innerHTML =`${mre}`;
     money.innerHTML =`${mon}`;
     // console.log(`교환완료`);

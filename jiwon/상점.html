@@ -17,7 +17,7 @@
             </div>
             <div class="money">
                 <img src="../돈.png" alt="money">
-                <span class="moneyText">0</span>               <!--플레이어 소지금 연결-->
+                <span class="moneyText"><span class="infovalue5"></span></span>               <!--플레이어 소지금 연결-->
             </div>
         </div>
     
@@ -28,21 +28,25 @@
                 <div class="posionHPSub">
                     <h1>HP 물약</h1>
                     <p>HP를 상승시키는 물약이다. <br>
-                        사용 시 HP를 50씩 증가시킨다.</p>
+                        사용 시 HP를 50씩 증가시킨다.
+                        <br> : <span class="infoValue1">0</span>개</p>
                 </div>
 
                 <img id="ATK" class="posionAtk" src="../공격력증가.png" alt="공격력증가포션">
                 <div class="posionAtkSub">
                     <h1>공격력 증가포션</h1>
                     <p>공격력을 상승시키는 물약이다. <br>
-                        사용 시 공격력을 10을 증가시킨다.</p>
+                        사용 시 공격력을 10을 증가시킨다.
+                         <br> : <span class="infoValue">0</span>개</p>
+                    
                 </div>
                
                 <img id="SH" class="shield" src="./방패.png" alt="방어구">
                 <div class="shieldSub">
                     <h1>방어력 증가포션</h1>
                     <p>방어력을 상승시키는 물약이다. <br>
-                        사용 시 방어력을 10을 증가시킨다.</p>
+                        사용 시 방어력을 10을 증가시킨다.
+                        <br> : <span class="infoValue2">0</span>개</p>
                 </div>
             </div>
 
@@ -71,7 +75,7 @@
                 <div class="equal">=</div>
                 <div class="divmoney">
                     <img class="moneyC" src="../돈.png" alt="돈">
-                    <div class="moneyCsub"> $ 1,000</div>   <!--1회 교환 시 지급되는 money-->
+                    <div class="moneyCsub"><span class="infovalue4">1000</span></div>   <!--1회 교환 시 지급되는 money-->
                 </div>
                 <div id="chg" onclick="change();" class="btnchange">교환하기</div>
             </div>
@@ -143,5 +147,9 @@
     </div>
     
 </body>
+<script>
+    console.log(window.localStorage.getItem('상점'));
+</script>
 <script src="./상점.js"></script>
+<script src="./index.js"></script>
 </html>

@@ -22,10 +22,20 @@
     <label for="ID"> 비밀번호 </label>
 </div>
 <div class="button">
-    <button type="submit">로그인</button>
+    <button type="submit" class="reset">로그인</button>
 </div>
 </form>
 <div class="caption"> <a href="">계정 찾기</a> </div>
 </section>
+<script>
+    document.querySelector(".reset").onclick = function(){
+
+        window.localStorage.removeItem("Atk");
+        window.localStorage.removeItem("hp");
+        window.localStorage.removeItem("def");
+        window.localStorage.removeItem("my");
+        
+    }
+</script>
 </body>
 </html>

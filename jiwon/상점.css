@@ -83,7 +83,7 @@ body{
     left: 50%;
     transform: translate(-50%);
     width: 1000px;
-    height: 70%;
+    height: 75%;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 100px;
 
@@ -358,11 +358,14 @@ body{
 
 .info{
     position: absolute;
-    top: 50%;
+   
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
     width: 400px;
     height: 600px;
+    left: 600px;
+    top: 0px;    
 }
 
 /*-------------------------- HP 물약 선택시 나오는 팝업창 ---------------------------------*/
@@ -396,7 +399,7 @@ body{
     height: 600px;
     position: relative;
     display: none;
-    
+     
 }
 
 .infoAtk.open{
