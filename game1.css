@@ -1,0 +1,31 @@
+
+body {
+    justify-content: center;
+    height: 100vh;
+    background: url("https://search.pstatic.net/sunny/?src=http%3A%2F%2Fwww.matcl.com%2Ffiles%2Fattach%2Fimages%2F2791205%2F600%2F842%2F002%2F686cdad080c60ea1b18e3e88ca6aa251.jpg&type=sc960_832") no-repeat center;
+    background-size: cover;
+}
+
+.img1{
+    text-align: center;
+}
+
+.img{
+    height: 350px;
+    justify-content: center;
+    margin-bottom: -45px;
+    cursor: pointer;
+}
+
+
+.btn{
+    text-align: center;
+}
+
+.btn1{
+    margin-left: 10px;
+}
+
+.font{
+    color: blue;
+}
