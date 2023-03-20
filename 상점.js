@@ -5,9 +5,10 @@ function settingsValue(){
   document.querySelector('.infoValue1').innerHTML = window.localStorage.getItem("hp") || 0;
   document.querySelector('.infoValue2').innerHTML = window.localStorage.getItem("def") || 0;
   document.querySelector('.infovalue5').innerHTML = window.localStorage.getItem("my");
-  
-  
+  document.querySelector('.cntRemains').innerHTML = window.localStorage.getItem("re") || 0;
+  document.querySelector('.monsterText').innerHTML = window.localStorage.getItem("re") || 0;
 }
+
 
 settingsValue();
 
@@ -15,14 +16,33 @@ let _money = window.localStorage.getItem("my");
 
 function money() {
   
-  let money2 = document.querySelector("infovalue5");
+  let money2 = document.querySelector(".infovalue5");
 
   
   money2.innerHTML = `${_money}`;
 }
 
+// function buy(num) { //모르겠다
+
+
+
+//   // let aaa = countHp();
+//   let restmy;
+//   let money2 = document.querySelector(".infovalue5");
+
+ 
+//   restmy = _money - (100*num);
+//   money2.innerHTML = `${restmy}`;
+
+// // else{
+// //   restmy =  parseInt(_money) - (500*number);
+// //   money2.innerHTML = `${restmy}`;
+// // }
+// }
+
 // HP 물약 선택시 수량 카운트 -----------------------------------------------------------------------------------------
-function countHp(type)  {                                         // 물품 선택 시 카운트할 함수
+function countHp(type)  {        
+                                   // 물품 선택 시 카운트할 함수
     // 결과를 표시할 element
     const resultElement = document.getElementById('HPresult');
     
@@ -36,13 +56,29 @@ function countHp(type)  {                                         // 물품 선�
     }else if(type === 'HPminus' && number >= 1)  {
       number = parseInt(number) - 1;
     }
+
     
     // 결과 출력
+  //   
     resultElement.innerText = number; // 몇개살지
+
     let saveNumber = parseInt(document.querySelector('.infoValue1').innerHTML) + number;
     window.localStorage.setItem("hp",saveNumber);
     settingsValue();
-  }
+
+    // return number;
+
+    // if(buyBtn.onclick=function(){
+
+    //   let restmy;
+    //   let money2 = document.querySelector(".infovalue5");
+
+    //   restmy = _money - 100*number;
+    //   money2.innerHTML = `${restmy}`;
+    // });
+}
+
+  
 //---------------------------------------------------------------------------------------------------------------------
 
 
@@ -64,6 +100,8 @@ function countAtk(type)  {                                         // 물품 선
     
     // 결과 출력
     resultElement.innerText = number;
+
+    
     let saveNumber = parseInt(document.querySelector('.infoValue').innerHTML) + number;
     window.localStorage.setItem("Atk",saveNumber);
     settingsValue();
@@ -132,6 +170,8 @@ function countSH(type)  {                                         // 물품 선�
     
     // 결과 출력
     resultElement.innerText = number;
+ 
+
     let saveNumber = parseInt(document.querySelector('.infoValue2').innerHTML) + number;
     window.localStorage.setItem("def",saveNumber);
     settingsValue();
@@ -268,26 +308,40 @@ SHX.onclick =  function popup(){                       //x 시 나타날 팝업
     }
 }
 
+let _getmre = window.localStorage.getItem("re");
+let _getmre2 = window.localStorage.getItem("re");
+
+function re(){
+
+  let getmre2 = document.querySelector('.cntRemains');
+  let getmre3 = document.querySelector('.monsterText');
+  
+  getmre2.innerHTML = `${_getmre}`;
+  getmre3.innerHTML = `${_getmre2}`;
+
+}
 //---------------------------------------------------------------------------------------------------------------------
 
 function change(){
   
-  let cun = document.querySelector(".monsterText");
-  let money = document.querySelector(".moneyText");       //예시. 기존 소지하고 있는것과 연결되어야 함
-  const getmre = document.querySelector(".cntRemains");
   
-
-  let mre = getmre.innerText;
+  let money = document.querySelector(".moneyText");
+  let cun=document.querySelector(".monsterText") ;     //예시. 기존 소지하고 있는것과 연결되어야 함l
+  
+  // let mre = getmre.innerText;
   // for (let cun = 0; index < array.length; index++) {
   //   const element = array[index];
     
   // }
+  let getmre2 = document.querySelector('.cntRemains');
+  getmre2.innerHTML = `${_getmre}`;
   
-  if(mre >= 5){
-    mre = mre - 5;
+  if(_getmre >= 5){
+    _getmre = _getmre - 5;
     _money = parseInt(_money) +1000;
     mon = parseInt(_money);
-    cun.innerHTML =`${mre}`;
+
+    cun.innerHTML =`${_getmre}`;
     money.innerHTML =`${mon}`;
     // console.log(`교환완료`);
     // console.log(typeof mon);
@@ -305,3 +359,4 @@ function change(){
   money.innerText = `${mon}`;
 
 }
+

@@ -1,3 +1,4 @@
+
 let monsterAtk ; //몬스터 공격권
 let playerAtk; // 플레이어 공격권
 let userman;
@@ -8,7 +9,8 @@ let outputdiv = document.querySelector(".monster-output");
 let hppotion = window.localStorage.getItem("hp") || 0;
 let atkpotion = window.localStorage.getItem("Atk") || 0;
 let defpotion = window.localStorage.getItem("def") || 0;
-let mreward =0;
+let mreward = window.localStorage.getItem("re") || 0;;
+
 
 
 // 수정해야됨 : 체력바 기본값 줘야됨
@@ -543,29 +545,34 @@ function reward() {
   reward.innerHTML =`${dieMonster[0]}과 ${dieMonster[1]}을 획득했다.`;
 
 
-  if(dieMonster[1]=='체력증가물약')
-  {
-    mreward +=1;
+  if(dieMonster[1]=='체력증가물약'){
+    mreward = parseInt(mreward) +1;
 
     hppotion = parseInt(hppotion) + 1;
     window.localStorage.setItem("hp",hppotion);
+    window.localStorage.setItem("re",mreward);
 
   }
+
   else if(dieMonster[1]=='공격력증가물약'){
 
-    mreward +=1;
+    mreward = parseInt(mreward) +1;
     atkpotion = parseInt(atkpotion) + 1;
     window.localStorage.setItem("Atk",atkpotion);
+    window.localStorage.setItem("re",mreward);
     
   }
   else if(dieMonster[1]=='방어력증가물약'){
 
-    mreward +=1;
+    mreward = parseInt(mreward) +1;
     
     defpotion = parseInt(defpotion) + 1;
     window.localStorage.setItem("def",defpotion);
+    window.localStorage.setItem("re",mreward);
     
   }
+
+    
 
   monsterArr[0]=new monster("몬스터1", 100, 30, 10, 5, 1000);
   monsterArr[1]=new monster("몬스터2", 100, 20, 20, 10, 1000);
@@ -656,8 +663,3 @@ function defplus() {
 
   }
 }
-
-
-
-
-
