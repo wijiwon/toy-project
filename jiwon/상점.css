@@ -266,7 +266,7 @@ body{
 
 }
 
-.divRemains{
+.divRemains{                            /* 몬스터의 잔해 교환 > 몬스터의 잔해 영역*/
     position: absolute;
     left: 70px;
     width: 200px;
@@ -278,17 +278,19 @@ body{
     justify-content: flex-end;
 }
 
-.monRemains{
+.monRemains,
+.moneyC {                            /*몬스터의 잔해, 교환금 이미지*/
     width: 150px;
     height: 150px;
 }
 
-.monRemainsSub{
+.monRemainsSub,
+.moneyCsub{                         /*몬스터의 잔해 개수 / 교환금 금액*/
     font-size: 20px;
     font-weight: bold;
 }
 
-.equal{
+.equal{                                 /*몬스터의 잔해 영역의 ' = ' */
     position: absolute;
     top: 30px;
     left: 40%;
@@ -297,7 +299,7 @@ body{
     font-weight: bold;
 }
 
-.divmoney{
+.divmoney{                              /* 몬스터의 잔해 교환 > 교환금 영역*/
     position: absolute;
     left: 424px;
     width: 200px;
@@ -309,17 +311,8 @@ body{
     justify-content: flex-end;
 }
 
-.moneyC{
-    width: 150px;
-    height: 150px;
-}
 
-.moneyCsub{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.btnchange{
+.btnchange{                             /*교환하기 버튼*/
     position: absolute;
     right: 45px;
     top: 50%;
@@ -336,20 +329,130 @@ body{
     cursor: pointer;
 
 }
-
+/*-------------------------- HP 물약 선택시 나오는 팝업창 ---------------------------------*/
 .infoHP{
     background-color: rgba(0, 0, 0, 0.7);
     width: 400px;
     height: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-        flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
+    position: relative;
+    left: 30%;
+    display: none;
+    
 }
+
+.infoHP.open{
+    display: block;
+    
+}
+
+#HPresult {
+    position: absolute;
+    left: 180px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+/*-------------------------- ATK 물약 선택시 나오는 팝업창 ---------------------------------*/
+.infoAtk{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 600px;
+    position: relative;
+    left: 30%;
+    display: none;
+    
+}
+
+.infoAtk.open{
+    display: block;
+    
+}
+
+
+#ATKresult {
+    position: absolute;
+    left: 180px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/*-----------------------------------------------------------------------------------------*/
+
+/*--------------------------  sword 선택시 나오는 팝업창 ---------------------------------*/
+.infoSd{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 600px;
+    position: relative;
+    left: 30%;
+    display: none;
+    
+}
+
+.infoSd.open{
+    display: block;
+    
+}
+
+
+#SDresult {
+    position: absolute;
+    left: 180px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/*-----------------------------------------------------------------------------------------*/
+/*--------------------------  armour 선택시 나오는 팝업창 ---------------------------------*/
+.infoAm{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 600px;
+    position: relative;
+    left: 30%;
+    display: none;
+    
+}
+
+.infoAm.open{
+    display: block;
+    
+}
+
+
+#AMresult {
+    position: absolute;
+    left: 180px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/*-----------------------------------------------------------------------------------------*/
+
+/*--------------------------  shield 선택시 나오는 팝업창 ---------------------------------*/
+.infoSh{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 400px;
+    height: 600px;
+    position: relative;
+    left: 30%;
+    display: none;
+    
+}
+
+.infoSh.open{
+    display: block;
+    
+}
+
+
+#SHresult {
+    position: absolute;
+    left: 180px;
+    font-size: 30px;
+    font-weight: bold;
+}
+/*-----------------------------------------------------------------------------------------*/
+
 
 .X{
     position: absolute;
@@ -360,22 +463,30 @@ body{
 }
 
 .mainImg{
+    position: absolute;
     width: 300px;
     height: 300px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .infoTitle{
     position: absolute;
     top: 220px;
+    left: 50%;
+    transform: translate(-50%);
     color: white;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
+    
 
 }
 
 .HPbuy{
     position: absolute;
     top: 350px;
+    left: 50%;
+    transform: translate(-50%);
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -386,6 +497,8 @@ body{
 .countbtn{
     position: absolute;
     bottom: 120px;
+    left: 50%;
+    transform: translate(-50%);
     color: white;
     font-size: 20px;
     width: 400px;
@@ -406,16 +519,12 @@ body{
     right: 20px;
 }
 
-#result {
-    position: absolute;
-    left: 200px;
-    font-size: 20px;
-    font-weight: bold;
-}
 
 .buyBtn{
     position: absolute;
     bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
     background-color: rgb(217, 144, 66);
     width: 100px;
     height: 40px;
