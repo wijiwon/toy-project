@@ -459,7 +459,7 @@ function monsterAttack() {
             ph = ph -(mainmonster.atk - userman.def);
             
             let ph4 = ph*4;
-            alert(ph4);
+            
             
             phpbar.style.width = `${ph4}px`;
             phpid.innerHTML=`체력: ${ph}`;

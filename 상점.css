@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'dos';
-    src: url('../DOSGothic.ttf') format('truetype');  
+    src: url('./DOSGothic.ttf') format('truetype');  
 }
 
 body{
@@ -11,7 +11,7 @@ body{
 }
 
 .background{                                /*마리오 배경*/
-    background-image: url(../배경.png);
+    background-image: url(./배경.png);
     /* background-size: 100vw, 100vh; */
     background-repeat: no-repeat;
     width: 100vw;

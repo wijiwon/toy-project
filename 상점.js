@@ -1,4 +1,8 @@
 let mon=0;
+let number;
+let resultElement;
+let restmy;
+let _money = window.localStorage.getItem("my");
 
 function settingsValue(){
   document.querySelector('.infoValue').innerHTML = window.localStorage.getItem("Atk") || 0;
@@ -12,52 +16,58 @@ function settingsValue(){
 
 settingsValue();
 
-let _money = window.localStorage.getItem("my");
+
 
 function money() {
   
   let money2 = document.querySelector(".infovalue5");
 
-  
   money2.innerHTML = `${_money}`;
 }
 
-// function buy(num) { //모르겠다
+function buy() { //모르겠다
 
+  
+  let money2 = document.querySelector(".infovalue5");
 
+  restmy = _money - (100*number);
 
-//   // let aaa = countHp();
-//   let restmy;
-//   let money2 = document.querySelector(".infovalue5");
+  money2.innerHTML = `${restmy}`;
+  window.localStorage.setItem("my",restmy);
+  _money = window.localStorage.getItem("my");
+
+}
+function buy2() { //모르겠다
+
+  
+  let money2 = document.querySelector(".infovalue5");
 
  
-//   restmy = _money - (100*num);
-//   money2.innerHTML = `${restmy}`;
+  restmy = _money - (500*number);
+  money2.innerHTML = `${restmy}`;
+  window.localStorage.setItem("my",restmy);
+  _money = window.localStorage.getItem("my");
 
-// // else{
-// //   restmy =  parseInt(_money) - (500*number);
-// //   money2.innerHTML = `${restmy}`;
-// // }
-// }
+}
 
 // HP 물약 선택시 수량 카운트 -----------------------------------------------------------------------------------------
 function countHp(type)  {        
                                    // 물품 선택 시 카운트할 함수
     // 결과를 표시할 element
     const resultElement = document.getElementById('HPresult');
-    
+    let money2 = document.querySelector(".infovalue5");
     // 현재 화면에 표시된 값
-    let number = resultElement.innerText;
+    number = resultElement.innerText;
     
     // 더하기/빼기
     if(type === 'HPplus' && number <= 998) {
       number = parseInt(number) + 1;
+     
 
     }else if(type === 'HPminus' && number >= 1)  {
       number = parseInt(number) - 1;
     }
 
-    
     // 결과 출력
   //   
     resultElement.innerText = number; // 몇개살지
@@ -88,11 +98,14 @@ function countAtk(type)  {                                         // 물품 선
     const resultElement = document.getElementById('ATKresult');
     
     // 현재 화면에 표시된 값
-    let number = resultElement.innerText;
+    number = resultElement.innerText;
+
     
+
     // 더하기/빼기
     if(type === 'ATKplus' && number <= 998) {
       number = parseInt(number) + 1;
+      
 
     }else if(type === 'ATKminus' && number >= 1)  {
       number = parseInt(number) - 1;
@@ -158,7 +171,7 @@ function countSH(type)  {                                         // 물품 선�
     const resultElement = document.getElementById('SHresult');
     
     // 현재 화면에 표시된 값
-    let number = resultElement.innerText;
+   number = resultElement.innerText;
     
     // 더하기/빼기
     if(type === 'SHplus' && number <= 998) {
@@ -191,20 +204,28 @@ HP.onclick =  function popup(){                       //물품선택 시 나타�
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
       pophp.classList.remove('open');
+
     }
     else{
       pophp.classList.add('open');
     }
 }
-hpX.onclick =  function popup(){                       //x 시 나타날 팝업
+hpX.onclick =  function popup(){                 
+    resultElement = document.getElementById('HPresult');   
+    
+       //x 시 나타날 팝업
     let pophp = document.querySelector(".infoHP");
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
       pophp.classList.remove('open');
+      number=0;
+      resultElement.innerText =number;
+      
     }
-    else{
-      pophp.classList.add('open');
-    }
+    // else{
+    //   pophp.classList.add('open');
+      
+    // }
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -212,21 +233,28 @@ hpX.onclick =  function popup(){                       //x 시 나타날 팝업
 
 // Atk 물약 선택시 나타날 팝업 -----------------------------------------------------------------------------------------
 
-ATK.onclick =  function popup(){                       //물품선택 시 나타날 팝업
+ATK.onclick =  function popup(){                   
+    
+  //물품선택 시 나타날 팝업
     let pophp = document.querySelector(".infoAtk");
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
       pophp.classList.remove('open');
+      
     }
     else{
       pophp.classList.add('open');
     }
 }
-atkX.onclick =  function popup(){                       //x 시 나타날 팝업
+atkX.onclick =  function popup(){  
+  resultElement = document.getElementById('ATKresult');           
+              //x 시 나타날 팝업
     let pophp = document.querySelector(".infoAtk");
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
       pophp.classList.remove('open');
+      number=0;
+      resultElement.innerText =number;
     }
     else{
       pophp.classList.add('open');
@@ -287,7 +315,8 @@ AMX.onclick =  function popup(){                       //x 시 나타날 팝업
 
 // 방패 선택시 나타날 팝업 -----------------------------------------------------------------------------------------
 
-SH.onclick =  function popup(){                       //물품선택 시 나타날 팝업
+SH.onclick =  function popup(){                   
+      //물품선택 시 나타날 팝업
     let pophp = document.querySelector(".infoSh");
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
@@ -297,11 +326,14 @@ SH.onclick =  function popup(){                       //물품선택 시 나타�
       pophp.classList.add('open');
     }
 }
-SHX.onclick =  function popup(){                       //x 시 나타날 팝업
+SHX.onclick =  function popup(){       
+  resultElement = document.getElementById('SHresult');                           //x 시 나타날 팝업
     let pophp = document.querySelector(".infoSh");
 
     if(pophp.classList.contains('open')){     //open 클래스가 있는지 확인 있으면 true . display 적용은 css에서
       pophp.classList.remove('open');
+      number=0;
+      resultElement.innerText =number;
     }
     else{
       pophp.classList.add('open');
