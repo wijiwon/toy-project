@@ -12,6 +12,15 @@
   </style>
 </head>
 <body>
+  <p>오디오 자동재생</p>
+  <iframe src="./silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+  <audio id="audio" autoplay>
+  
+  <source src="../mymusic.mp3">
+  
+  </audio>
+
   <button onclick="showMsg()">상점</button>
   <div>
 		<!-- 아래 dialog 태그 영역이 메시지 창 -->
